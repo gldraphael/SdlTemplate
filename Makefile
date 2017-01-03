@@ -1,14 +1,14 @@
 # The input files
-INPUT_FILES = main.cpp
+INPUT_FILES = main.cpp Application.cpp
 
 # The compiler to use
 CC = clang++
 
 # Compiler flags
-COMPILER_FLAGS = -g
+COMPILER_FLAGS = -g -std=c++11
 
 # Linker flags
-LINKER_FLAGS = 
+LINKER_FLAGS = -lSDL2
 
 # The name of the output file
 OUTPUT_FILE = app.out
