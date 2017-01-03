@@ -44,8 +44,7 @@ void Application::Run()
     SDL_RenderClear(renderer);
 
     // draw the frame
-    printf("Drawing the screen...\n");
-    draw(renderer);
+    this->on_first_draw(renderer);
 
     // Render the frame
     SDL_RenderPresent(renderer);
@@ -123,4 +122,9 @@ void Application::close()
 
     // Quit
     SDL_Quit();
+}
+
+void Application::on_first_draw(SDL_Renderer* renderer)
+{
+	printf("Drawing screen for the first time...\n");
 }

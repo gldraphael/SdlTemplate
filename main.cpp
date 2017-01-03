@@ -1,8 +1,8 @@
-#include <iostream>
-using namespace std;
+#include "MyApp.h"
 
 int main(int argc, char* args[])
 {
-	cout << "Hey!" << endl;
+	MyApp app;
+	app.Run();
 	return 0;
 }

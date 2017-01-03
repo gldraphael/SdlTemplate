@@ -1,5 +1,5 @@
 # The input files
-INPUT_FILES = main.cpp Application.cpp
+INPUT_FILES = main.cpp Application.cpp MyApp.cpp
 
 # The compiler to use
 CC = clang++
