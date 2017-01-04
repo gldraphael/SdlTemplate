@@ -68,8 +68,8 @@ void Application::Run()
 		// Perform rendering
 		this->draw();
 
-        // Wait for 100 ms
-        SDL_Delay(100);
+        // Wait for 10 ms
+        SDL_Delay(10);
     }
 }
 
