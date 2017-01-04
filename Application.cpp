@@ -20,11 +20,10 @@ Application::Application(std::string title, unsigned int width, unsigned int hei
     windowWidth(640),
     windowHeight(480),
     isFullscreen(fullscreen),
-	backgroundColor({ 0xFF, 0xFF, 0xFF, 0xFF })
+	backgroundColor({ 0xFF, 0xFF, 0xFF, 0xFF }),
+	quit(false)
 {
-    quit = !init();
-    if (quit)
-        printf("Initialization failed\n");
+    
 }
 
 
@@ -39,6 +38,11 @@ void Application::Run()
 {
     //Event handler
     SDL_Event e;
+
+	// Initialize the app
+	quit = !init();
+    if (quit)
+        printf("Initialization failed\n");
 
     printf("Entering application loop...\n");
 
@@ -58,7 +62,10 @@ void Application::Run()
             }
         }
 
+		// Update state
 		this->on_update();
+
+		// Perform rendering
 		this->draw();
 
         // Wait for 100 ms
@@ -101,10 +108,11 @@ bool Application::init()
         return false;
     }
 
-    //Initialize renderer color (rgba) to white
-    SDL_SetRenderDrawColor(renderer, 0, 255, 255, 255);
+	// Windows are ready, trigger the on_init event
+	this->on_init();
 
-	on_init();
+    //Initialize renderer color (rgba) to background color
+    SDL_SetRenderDrawColor(renderer, backgroundColor.r, backgroundColor.g, backgroundColor.b, backgroundColor.a);
 
     return true;
 }
