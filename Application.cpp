@@ -22,8 +22,8 @@ Application::Application(std::string title, unsigned int width, unsigned int hei
     isFullscreen(fullscreen)
 {
     quit = !init();
-    if (!quit)
-        printf("Initialized...\n");
+    if (quit)
+        printf("Initialization failed\n");
 }
 
 
@@ -113,7 +113,14 @@ bool Application::init()
     //Initialize renderer color (rgba) to white
     SDL_SetRenderDrawColor(renderer, 0, 255, 255, 255);
 
+	on_init();
+
     return true;
+}
+
+void Application::on_init()
+{
+    printf("Initialization success\n");
 }
 
 void Application::close()
