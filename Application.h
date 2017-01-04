@@ -40,6 +40,21 @@ protected:
 
 
 	void set_background_color(SDL_Color color);
+	
+	unsigned int get_window_height() 
+	{
+		return windowHeight;
+	}
+
+	unsigned int get_window_width() 
+	{
+		return windowWidth;
+	}
+
+	bool is_fullscreen() 
+	{
+		return isFullscreen;
+	}
 
 public:
     Application();
