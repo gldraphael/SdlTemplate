@@ -5,14 +5,17 @@
 class Application
 {
 private:
-    //Main loop flag
+    // Main loop flag
     bool quit;
 
-    //The window
+    // The window
     SDL_Window* window;
 
-    //The window renderer
+    // The window renderer
     SDL_Renderer* renderer;
+
+	// The background color
+	SDL_Color backgroundColor;
 
     // Window properties
     std::string title;
@@ -37,6 +40,9 @@ protected:
 
 	// Event called when drawing the screen in the loop
     virtual void on_draw(SDL_Renderer* renderer);
+
+
+	void set_background_color(SDL_Color color);
 
 public:
     Application();

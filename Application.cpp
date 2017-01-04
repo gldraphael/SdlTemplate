@@ -19,7 +19,8 @@ Application::Application(std::string title, unsigned int width, unsigned int hei
     title(title),
     windowWidth(640),
     windowHeight(480),
-    isFullscreen(fullscreen)
+    isFullscreen(fullscreen),
+	backgroundColor({ 0xFF, 0xFF, 0xFF, 0xFF })
 {
     quit = !init();
     if (quit)
@@ -39,8 +40,8 @@ void Application::Run()
     //Event handler
     SDL_Event e;
 
-    //Clear screen (white)
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+    //Clear screen using the background color
+    SDL_SetRenderDrawColor(renderer, backgroundColor.r, backgroundColor.g, backgroundColor.b, backgroundColor.a);
     SDL_RenderClear(renderer);
 
     // draw the frame
@@ -152,8 +153,18 @@ void Application::on_draw(SDL_Renderer* renderer)
 
 void Application::draw()
 {
-	SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
-	SDL_RenderClear(renderer);
+	//Clear screen using the background color
+    SDL_SetRenderDrawColor(renderer, backgroundColor.r, backgroundColor.g, backgroundColor.b, backgroundColor.a);
+    SDL_RenderClear(renderer);
+
+	// Trigger the on_draw event
 	on_draw(renderer);
+
+	// Update the screen
 	SDL_RenderPresent(renderer);
+}
+
+void Application::set_background_color(SDL_Color color)
+{
+	this->backgroundColor = color;
 }
