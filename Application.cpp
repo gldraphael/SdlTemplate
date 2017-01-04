@@ -66,6 +66,10 @@ void Application::Run()
                     quit = true;
             }
         }
+
+		this->on_update();
+		this->draw();
+
         // Wait for 100 ms
         SDL_Delay(100);
     }
@@ -127,4 +131,22 @@ void Application::close()
 void Application::on_first_draw(SDL_Renderer* renderer)
 {
 	printf("Drawing screen for the first time...\n");
+}
+
+void Application::on_update()
+{
+	
+}
+
+void Application::on_draw(SDL_Renderer* renderer)
+{
+	
+}
+
+void Application::draw()
+{
+	SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+	SDL_RenderClear(renderer);
+	on_draw(renderer);
+	SDL_RenderPresent(renderer);
 }

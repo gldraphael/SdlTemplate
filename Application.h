@@ -22,10 +22,17 @@ private:
 
     bool init();
     void close();
+	void draw();
 
 protected:
 	// Event called when drawing for the first time
     virtual void on_first_draw(SDL_Renderer* renderer);
+
+	// Event called when before drawing the screen in the loop
+    virtual void on_update();
+
+	// Event called when drawing the screen in the loop
+    virtual void on_draw(SDL_Renderer* renderer);
 
 public:
     Application();
