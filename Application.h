@@ -32,9 +32,6 @@ protected:
 	// Event called after initialized
     virtual void on_init();
 
-	// Event called when drawing for the first time
-    virtual void on_first_draw(SDL_Renderer* renderer);
-
 	// Event called when before drawing the screen in the loop
     virtual void on_update();
 

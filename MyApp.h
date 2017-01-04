@@ -5,7 +5,7 @@
 class MyApp : public Application
 {
 private:
-    virtual void on_first_draw(SDL_Renderer* renderer);
+    virtual void on_draw(SDL_Renderer* renderer);
 
 public:
     MyApp();

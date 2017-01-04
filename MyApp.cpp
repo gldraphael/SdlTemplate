@@ -7,9 +7,9 @@ MyApp::MyApp()
 	
 }
 
-void MyApp::on_first_draw(SDL_Renderer* renderer)
+void MyApp::on_draw(SDL_Renderer* renderer)
 {
-	Application::on_first_draw(renderer);
+	Application::on_draw(renderer);
 
 	// TODO: Add drawing logic here
 	

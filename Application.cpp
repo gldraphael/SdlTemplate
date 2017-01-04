@@ -40,16 +40,6 @@ void Application::Run()
     //Event handler
     SDL_Event e;
 
-    //Clear screen using the background color
-    SDL_SetRenderDrawColor(renderer, backgroundColor.r, backgroundColor.g, backgroundColor.b, backgroundColor.a);
-    SDL_RenderClear(renderer);
-
-    // draw the frame
-    this->on_first_draw(renderer);
-
-    // Render the frame
-    SDL_RenderPresent(renderer);
-
     printf("Entering application loop...\n");
 
     //While application is running
@@ -121,7 +111,7 @@ bool Application::init()
 
 void Application::on_init()
 {
-    printf("Initialization success\n");
+    printf("Initialization complete...\n");
 }
 
 void Application::close()
@@ -134,11 +124,6 @@ void Application::close()
 
     // Quit
     SDL_Quit();
-}
-
-void Application::on_first_draw(SDL_Renderer* renderer)
-{
-	printf("Drawing screen for the first time...\n");
 }
 
 void Application::on_update()
