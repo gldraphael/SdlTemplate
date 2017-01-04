@@ -1,5 +1,5 @@
 # The input files
-INPUT_FILES = main.cpp Application.cpp MyApp.cpp
+INPUT_FILES = $(wildcard *.cpp)
 
 # The compiler to use
 CC = clang++
